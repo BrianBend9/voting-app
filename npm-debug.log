@@ -1,6 +1,6 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/Cellar/node/6.2.1/bin/node',
-1 verbose cli   '/Users/Brian/.npm-packages/bin/npm',
+1 verbose cli   '/Users/Brian/.npm-global-packages/bin/npm',
 1 verbose cli   'run',
 1 verbose cli   'test' ]
 2 info using npm@3.9.5
@@ -9,7 +9,7 @@
 4 verbose stack     at Error (native)
 5 verbose cwd /Users/Brian/Desktop/bitmaker/projects/voting-app
 6 error Darwin 15.6.0
-7 error argv "/usr/local/Cellar/node/6.2.1/bin/node" "/Users/Brian/.npm-packages/bin/npm" "run" "test"
+7 error argv "/usr/local/Cellar/node/6.2.1/bin/node" "/Users/Brian/.npm-global-packages/bin/npm" "run" "test"
 8 error node v6.2.1
 9 error npm  v3.9.5
 10 error path /Users/Brian/Desktop/bitmaker/projects/voting-app/package.json
