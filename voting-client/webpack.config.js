@@ -1,3 +1,5 @@
+var autoprefixer = require('autoprefixer');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
@@ -29,8 +31,20 @@ module.exports = {
     contentBase: './dist', 
     hot: true
   },
+
+  postcss: function() {
+    return [ autoprefixer({ browsers: ['last 2 versions'] }) ]; 
+  },
   
   plugins: [
-    new webpack.HotModuleReplacementPlugin()  
+    new webpack.HotModuleReplacementPlugin(),
+
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    })
   ]
 };
+
+
