@@ -1,4 +1,5 @@
 var autoprefixer = require('autoprefixer');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
@@ -10,11 +11,20 @@ module.exports = {
   ],
 
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader' 
-    }] 
+    loaders: [
+      
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader' 
+      },
+
+      { 
+        test: /\.css$/,
+        include: __dirname + '/src',
+        loader: ExtractTextPlugin.extract('style', 'css!postcss') 
+      }
+    ] 
   },
 
   resolve: {
@@ -38,6 +48,8 @@ module.exports = {
   
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+
+    new ExtractTextPlugin('style.css'),
 
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
